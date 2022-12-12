@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
 
-const productsSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
   name: {
     type: String,
-    requird: [true, 'product name must be provided'],
+    required: [true, 'product name must be provided'],
   },
   price: {
     type: Number,
-    requird: [true, 'product price must be provided'],
+    required: [true, 'product price must be provided'],
   },
   featured: {
     type: Boolean,
@@ -17,18 +17,18 @@ const productsSchema = new mongoose.Schema({
     type: Number,
     default: 4.5,
   },
-  createAt: {
+  createdAt: {
     type: Date,
     default: Date.now(),
   },
   company: {
     type: String,
     enum: {
-      vaslues: ['ikea', 'liddy', 'caressa', 'marcos'],
+      values: ['ikea', 'liddy', 'caressa', 'marcos'],
       message: '{VALUE} is not supported',
     },
     // enum: ['ikea', 'liddy', 'caressa', 'marcos'],
   },
 })
 
-module.exports = mongoose.model('Product', productsSchema)
+module.exports = mongoose.model('Product', productSchema)
