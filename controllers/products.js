@@ -2,10 +2,10 @@ const Product = require('../models/product')
 
 const getAllProductsStatic = async (req, res) => {
   // throw new Error('testing async errors')
-  const search = 'b'
+  // const search = 'b'
   const products = await Product.find({
-    name: { $regex: search, $options: 'i' },
-  })
+    // name: { $regex: search, $options: 'i' },
+  }).sort('-name price')
   res.status(200).json({ products, nbHits: products.length })
 }
 const getAllProducts = async (req, res) => {
