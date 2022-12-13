@@ -4,9 +4,10 @@ const getAllProductsStatic = async (req, res) => {
   // throw new Error('testing async errors')
   // const search = 'b'
   const products = await Product.find({
+    price: { $gt: 100 },
     // name: { $regex: search, $options: 'i' },
   })
-    .sort('name')
+    .sort('price')
     .select('name price')
   // .limit(10)
   // .skip(5)
